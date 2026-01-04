@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张志豪 - 个人简历</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* 头部样式 */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .header .title {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 主体内容 */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .left-column {
+            padding: 35px;
+            background-color: #f9fafc;
+        }
+        
+        .right-column {
+            padding: 35px;
+        }
+        
+        /* 公共部分样式 */
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            color: #1e3c72;
+            font-size: 1.5rem;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eaeef5;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 60px;
+            height: 2px;
+            background-color: #2a5298;
+        }
+        
+        /* 技能部分样式 */
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2a5298;
+        }
+        
+        .skill-desc {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        /* 项目部分样式 */
+        .project-item, .internship-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .project-item:last-child, .internship-item:last-child {
+            border-bottom: none;
+        }
+        
+        .project-header, .internship-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .project-name, .internship-company {
+            font-weight: 700;
+            color: #2a5298;
+            font-size: 1.1rem;
+        }
+        
+        .project-time, .internship-time {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .project-role, .internship-role {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        
+        .project-desc, .internship-desc {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .achievement-list {
+            padding-left: 20px;
+        }
+        
+        .achievement-list li {
+            margin-bottom: 8px;
+            color: #444;
+        }
+        
+        /* 自我评价样式 */
+        .self-evaluation {
+            background-color: #f0f5ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2a5298;
+        }
+        
+        .self-evaluation p {
+            margin-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .left-column, .right-column {
+                padding: 25px;
+            }
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: #e8efff;
+            color: #2a5298;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .badge-container {
+            margin-top: 10px;
+        }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        
+        .print-btn:hover {
+            background-color: #1e3c72;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- 头部信息 -->
+        <header class="header">
+            <h1>张志豪</h1>
+            <div class="title">信息技术专业 | 求职意向：软件开发/数据分析/系统运维实习岗位</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>湖南工商大学 | 信息管理与信息系统专业 | 大四</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>[15707327617]</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>[2508044626@qq.com]</span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="content">
+            <!-- 左栏 -->
+            <div class="left-column">
+                <!-- 专业技能 -->
+                <section class="section">
+                    <h2 class="section-title">专业技能</h2>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">编程语言</div>
+                        <div class="skill-desc">
+                            <p>精通Python，熟练运用其进行数据分析、后端开发及机器学习模型构建；了解Java、C语言，具备基础编程与代码实现能力。</p>
+                            <div class="badge-container">
+                                <span class="badge">Python</span>
+                                <span class="badge">Java</span>
+                                <span class="badge">C语言</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">开发技术</div>
+                        <div class="skill-desc">
+                            <p>掌握Django框架与MySQL数据库，能独立完成Web应用开发；熟悉HTML、CSS、JavaScript及Bootstrap前端技术；具备鸿蒙系统简单开发经验。</p>
+                            <div class="badge-container">
+                                <span class="badge">Django</span>
+                                <span class="badge">MySQL</span>
+                                <span class="badge">HTML/CSS/JS</span>
+                                <span class="badge">鸿蒙开发</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">工具与认证</div>
+                        <div class="skill-desc">
+                            <p>持有计算机二级证书，熟练使用VS Code、Git、Navicat等开发工具；精通Pandas、Scikit-learn等数据分析与机器学习库。</p>
+                            <div class="badge-container">
+                                <span class="badge">VS Code</span>
+                                <span class="badge">Git</span>
+                                <span class="badge">Pandas</span>
+                                <span class="badge">Scikit-learn</span>
+                                <span class="badge">计算机二级</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">核心能力</div>
+                        <div class="skill-desc">
+                            <p>具备完整项目开发流程经验，熟悉需求分析、系统设计、功能实现、测试优化全环节；掌握系统运维基础技能，包括数据备份与恢复、系统监控、故障排查等。</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 实习经历 -->
+                <section class="section">
+                    <h2 class="section-title">实习经历</h2>
+                    
+                    <div class="internship-item">
+                        <div class="internship-header">
+                            <div class="internship-company">湖南潇湘郡安公司</div>
+                            <div class="internship-time">2024年7月 - 2024年8月</div>
+                        </div>
+                        <div class="internship-role">信息系统运维实习生</div>
+                        <div class="internship-desc">参与企业信息系统日常运行监控与维护，协助完成数据备份、故障排查等工作。</div>
+                        <ul class="achievement-list">
+                            <li>参与企业信息系统日常运行监控，记录CPU使用率、内存占用等关键指标，每日提交巡检报告</li>
+                            <li>协助完成数据备份与恢复工作，掌握备份策略制定、自动化备份设置、数据完整性验证流程</li>
+                            <li>在工程师指导下排查系统故障，参与解决网络中断、服务宕机等问题3起</li>
+                            <li>配合跨部门协作，协助优化系统操作流程，提升数据录入效率</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- 自我评价 -->
+                <section class="section">
+                    <h2 class="section-title">自我评价</h2>
+                    <div class="self-evaluation">
+                        <p>专业基础扎实，融合信息管理与计算机技术，具备从项目开发到系统运维的多维度实践能力，能快速适配不同岗位需求。</p>
+                        <p>具备较强的团队协作意识，在项目开发中高效配合伙伴完成分工任务，在实习中快速融入团队，积极协助同事处理工作。</p>
+                        <p>学习能力突出，对新技术、新框架保持敏锐，能快速掌握鸿蒙开发、机器学习等技能，并应用于实际项目。</p>
+                        <p>工作态度严谨负责，注重细节与数据准确性，具备良好的问题分析与解决能力，面对复杂场景能冷静应对并高效推进。</p>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- 右栏 -->
+            <div class="right-column">
+                <!-- 项目经历 -->
+                <section class="section">
+                    <h2 class="section-title">项目经历</h2>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-name">零售商库存信息管理系统</div>
+                            <div class="project-time">2024-2025学年</div>
+                        </div>
+                        <div class="project-role">核心开发成员</div>
+                        <div class="project-desc">为解决中小型零售企业库存管理效率低、数据碎片化问题，基于B/S架构设计开发的一体化库存管理系统，采用Django+MySQL技术栈。</div>
+                        <ul class="achievement-list">
+                            <li>参与需求分析与系统架构设计，梳理核心业务流程，定义客户、商品、出入库等数据模型</li>
+                            <li>负责后端核心功能开发，包括入库出库逻辑实现、库存实时更新、低库存预警等模块</li>
+                            <li>参与前端页面开发与数据可视化实现，通过ECharts构建库存总价值、销售趋势等仪表盘</li>
+                            <li>完成系统测试与优化，修复功能漏洞3处，优化数据库查询效率，最终系统实现库存管理全流程数字化</li>
+                        </ul>
+                        <div class="badge-container">
+                            <span class="badge">Django</span>
+                            <span class="badge">MySQL</span>
+                            <span class="badge">Python</span>
+                            <span class="badge">ECharts</span>
+                            <span class="badge">B/S架构</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-name">基于SVC模型的英雄联盟胜负预测研究</div>
+                            <div class="project-time">2024-2025学年</div>
+                        </div>
+                        <div class="project-role">独立完成者</div>
+                        <div class="project-desc">基于英雄联盟钻石段位5万场比赛前20分钟数据，运用机器学习方法构建SVC模型进行胜负预测。</div>
+                        <ul class="achievement-list">
+                            <li>对原始数据进行清洗，删除重复值28条、异常数据若干，构建经济差、等级差等7个关键特征</li>
+                            <li>使用Scikit-learn库实现模型训练，通过网格搜索优化核函数、C参数等配置</li>
+                            <li>最终模型准确率达86%，F1分数0.86，性能优异</li>
+                            <li>运用Pandas进行数据处理，Matplotlib与Seaborn实现特征可视化与混淆矩阵分析</li>
+                        </ul>
+                        <div class="badge-container">
+                            <span class="badge">Python</span>
+                            <span class="badge">机器学习</span>
+                            <span class="badge">Scikit-learn</span>
+                            <span class="badge">Pandas</span>
+                            <span class="badge">数据可视化</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 教育背景 -->
+                <section class="section">
+                    <h2 class="section-title">教育背景</h2>
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-name">湖南工商大学</div>
+                            <div class="project-time">2022年 - 至今</div>
+                        </div>
+                        <div class="project-role">信息管理与信息系统专业 | 大四在读</div>
+                        <div class="project-desc">
+                            <p><strong>主修课程：</strong>数据结构、数据库原理、计算机网络、信息系统分析与设计、Python程序设计、Java程序设计、机器学习基础、Web前端技术等</p>
+                            <p><strong>专业能力：</strong>掌握信息管理与计算机技术的交叉知识，具备系统开发、数据分析、运维管理等综合能力</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> 打印简历
+    </button>
+    
+    <script>
+        // 简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为每个部分添加简单的悬停效果
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                section.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // 打印按钮点击效果
+            const printBtn = document.querySelector('.print-btn');
+            printBtn.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 准备打印...';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-print"></i> 打印简历';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
